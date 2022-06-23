@@ -1,22 +1,56 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 
+const firstNameList  = ['Jason' , 'Jack' , 'Rose' , 'Marry' , 'john' , 'Amber' ];;
+const lastNameList = ['Liu' , 'Lee' , 'Chen' , 'Lu' , 'Shie' , 'Wang' , 'Shen' ];
+const jobList = [ 'DevOps' , 'Web Devs' , 'EE' , 'CS' , 'Data Analysis'];
+const placeList = [ 'Taiwan' , 'Taipei' , 'US' , 'LA' , 'Japan'];
+const YList = ['2022' , '2021' , '2020'];
+const MList = ['May' , 'June' , 'July'];
+const DList = [];
+for(let i=1;i<=30;i++) DList.push(i);
 
-const User_Image = (
-    <img src="https://picsum.photos/300/300" alt='Image'/>
-);
+const Skills_techs = ['HTML' , 'CSS' , 'Javascript' , 'React' , 'Node' , 'MongoDB' , 'Python' , 'Flask' , 'Django' , 'Numpy' , 'Pandas' , 'MySQL' , 'p5.js' , 'Heroku' ,'Git', 'Github' , 'Vue' , 'Docker' ,'Next.js' , 'Node.js' , 'Express.js' , 'Laravel' , 'PHP' , 'AWS' , 'GCP' ];
 
 
-const UserName = {
-    firstName : 'Jason',
-    lastName : 'Liu'
+
+var DataList = [];
+
+function random( ele ) {
+    let max = ele.length;
+    return ele[ Math.floor(Math.random() * max) ];
+}
+  
+function randomInt( max ){
+    return String(Math.floor(Math.random() * max ));
 }
 
-const UserInfor = {
-    job : 'Web dev',
-    place : 'Taiwan'
+function randomSkills(){
+    let len = randomInt( Skills_techs.length );
+
+    let result = Skills_techs.slice(0,len+1);
+
+    for(let i=0;i<=len;i++){
+        for(let j=0;j<=len ;j++){
+            if( Math.random() > 0.5 ){
+                let temp = result[i];
+                result[i] = result[j];
+                result[j] = temp;
+            }
+        }
+    }
+
+    return result;
 }
+
+function User_Image() {
+    const url = "https://picsum.photos"+"/id/"+randomInt(500)+"/300/300";
+    return (
+        <img src={url} alt=''/>
+    );
+};
+
 
 const CheckIcon = (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
@@ -25,16 +59,18 @@ const CheckIcon = (
     </svg>
 );
 
-const User = (
-    <div className='userIamge'>
-        {User_Image}
-        <h2>{UserName.firstName} {UserName.lastName}</h2>
-        <p>{UserInfor.job} {UserInfor.place}</p>
-    </div>
-);
+function User( UserName , UserInfor ){
 
+    console.log( UserName.firstName );
 
-const Skills_techs = ['HTML' , 'CSS' , 'Javascript' , 'React' , 'Node' , 'MongoDB' , 'Python' , 'Flask' , 'Django' , 'Numpy' , 'Pandas' , 'MySQL' , 'p5.js' , 'Heroku' ,'Git', 'Github'];
+    return (
+        <div className='userIamge'>
+            {User_Image()}
+            <h2>{UserName.firstName} {UserName.lastName}</h2>
+            <p>{UserInfor.job} {UserInfor.place}</p>
+        </div>
+    );
+}
 
 const Block_style = {
     display: 'inline-block',
@@ -48,31 +84,30 @@ const Block_style = {
 
 function Block( ele ){
     return (
-        <div className='block' style={ Block_style }>
+        <div className='block' style={ Block_style } key={ele}>
             {ele}
         </div>
     );
 }
-const Techs = Skills_techs.map( (ele)=> Block(ele) );
-const Skills = (
-    <div className='skills'>
-        <h2>SKILLS</h2>
-        {Techs}
-    </div>
-);
 
-const Date = {
-    Y : '2022',
-    M : 'June',
-    D : '23'
-};
+function Skills( Data ){
+    return (
+        <div className='skills'>
+            <h2>SKILLS</h2>
+            { Data.map( (ele)=> Block(ele) ) }
+        </div>
+    );
+}
 
-const Detail = (
+
+function Detail ( date ){
+    
+    return (
     <div className='details'>
         {CheckIcon}
-          Joined on {Date.M} {Date.M} , {Date.Y}
+          Joined on {date.M} {date.M} , {date.Y}
     </div>
-);
+)};
 
 const Card_style = {
     height : 'auto',
@@ -83,19 +118,52 @@ const Card_style = {
     textAlign : 'center',
 };
 
-const card = (
-    <div className='card' style={Card_style}>
-        {User}
-        {Skills}
-        {Detail}
-    </div>
-);
 
+function card( Data ){
+    return(
+        <div className='card' style={Card_style} key={Data}>
+            {User( Data.userName , Data.userInfor ) }
+            {Skills( Data.skills_techs) }
+            {Detail( Data.date ) }
+        </div>
+    );
+}
+
+function Random_Generate(){
+
+    for( let i=0;i<10;i++){
+        DataList.push({
+            user_Image_Url : "https://picsum.photos/300/300",
+            userName : {
+                firstName : random(firstNameList),
+                lastName : random(lastNameList),
+            },
+            userInfor : {
+                job : random(jobList),
+                place : random(placeList),
+            },
+            skills_techs : randomSkills(),
+            date : {
+                Y : random(YList),
+                M : random(MList),
+                D : random(DList),
+            },
+        });
+    }
+    
+    DataList.map( (ele)=> card(ele)  );
+}
+
+
+Random_Generate();
+
+console.log( DataList );
 
 const app = (
-    <div className='app'>
-        {card}
-    </div>
+        <div className='app'>
+            { DataList.map( (ele)=>card(ele) ) }
+        </div>
 );
-const Root = document.getElementById( 'root' )
-ReactDOM.render( app , Root );
+
+const Root = ReactDOM.createRoot( document.getElementById( 'root' ) );
+Root.render( app );
