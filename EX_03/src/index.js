@@ -1,39 +1,50 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const bgc = '#EDF6F9'
+const Hello = 'Learning React in 30 Days';
+const Title = 'Write html ans CSS in JS';
+const substitle = 'coool stuff ';
+const Author = {
+    firstName: 'Jason',
+    lastName: 'Liu'
+};
+
+const Date = 'June 23,2022';
 
 const header = (
     <header >
        <div className='header-wrapper'>
-            <h1>Learning React in 30 Days</h1>
-            <h2>Write html and CSS in JS</h2>
-            <h3>coool stuff </h3>
-            <small>June 23,2022</small>
+            <h1>{ Hello }</h1>
+            <h2>{ Title }</h2>
+            <h3>{ substitle }</h3>
+            <p>
+                Author: {Author.firstName } {Author.lastName }
+            </p>
+            <small>Date:{ Date }</small>
        </div>
     </header>
 );
 
-const main_style = {
-
-}
-
+const techs = [ 'HTML' , 'CSS' , 'JavaScript' ];
+const techs_formatted = techs.map( (ele)=> <li>{ ele }</li>)
 const main = (
     <main >
         <div className='main-wrapper'>
-            <p>Preprocess : </p>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
+            <p>Preprocess 
+                <strong>
+                    <em>
+                        React.js
+                    </em>
+                </strong>
+                : </p>
+            <ul>{techs_formatted}</ul>
         </div>
     </main>
 );
 
-const footer_style = {
-    backgroundColor: bgc
-}
+// const footer_style = {
+//     backgroundColor: bgc
+// }
 
 const footer = (
     <footer>
