@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
 
 
 const User_Image = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-    </svg>
+    <img src="https://picsum.photos/300/300" alt='Image'/>
 );
+
 
 const UserName = {
     firstName : 'Jason',
@@ -38,14 +37,19 @@ const User = (
 const Skills_techs = ['HTML' , 'CSS' , 'Javascript' , 'React' , 'Node' , 'MongoDB' , 'Python' , 'Flask' , 'Django' , 'Numpy' , 'Pandas' , 'MySQL' , 'p5.js' , 'Heroku' ,'Git', 'Github'];
 
 const Block_style = {
+    display: 'inline-block',
+    border:'solid 10px #83c5be',
     borderRadius: '5px',
-    backgroundColor: '#83c5be'
+    backgroundColor: '#83c5be',
+    margin:'5px',
+    textAlign: 'center',
+    color: '#FFF',
 };
 
 function Block( ele ){
     return (
         <div className='block' style={ Block_style }>
-            ele
+            {ele}
         </div>
     );
 }
@@ -66,12 +70,21 @@ const Date = {
 const Detail = (
     <div className='details'>
         {CheckIcon}
-        Joined on {Date.M} {Date.M} , {Date.Y}
+          Joined on {Date.M} {Date.M} , {Date.Y}
     </div>
 );
 
+const Card_style = {
+    height : 'auto',
+    width : '500px',
+    padding : '5px',
+    margin : '10px',
+    borderRadius : '10px',
+    textAlign : 'center',
+};
+
 const card = (
-    <div className='card'>
+    <div className='card' style={Card_style}>
         {User}
         {Skills}
         {Detail}

@@ -5,4 +5,27 @@
 
 .root {
     border-radius: 10px;
+    /* text-align: center;
+    color: #FFF; */
+}
+
+.card {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    background-color: rgb(224, 238, 244);
+}
+
+img {
+    border: solid 5px #83c5be;
+    border-radius: 50%;   
+    
+}
+
+h2 {
+    margin: 5px;
+}
+
+svg {
+    margin-right: 2px;
+    margin-top: 5px;
 }
