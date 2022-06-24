@@ -65,10 +65,18 @@ const Card_style = ( type )=>{
 const app_style = {
     height:'auto',
     width:'530px',
-    margin: 'auto',
+    margin: '10px auto',
 };
+
+const Title = (
+    <div className='Title'>
+        <h1>30 Days of React</h1>
+        <h2>This is a prime table</h2>
+    </div>
+);
 const app = (
         <div className='app' style={app_style}>
+            {Title}
             < CreateData />
         </div>
 );
