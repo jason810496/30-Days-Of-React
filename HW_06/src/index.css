@@ -12,17 +12,54 @@
 .card {
     font-family: 'Lato', sans-serif;
     font-style: normal;
-    background-color: rgb(224, 238, 244);
+    
+
+    height: auto;
+    width: 500px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.block{
+    display: inline-block;
+    border-radius: 5px;
+    border: solid 10px;
+    margin: 5px;
+    text-align: center;
+    color: #fff;
 }
 
 img {
-    border: solid 5px #83c5be;
+    border: solid 5px;
     border-radius: 50%;   
     margin: 10px;
 }
 
-h2 {
+header , footer {
+    font-family: 'Montserrat';
+    padding: 10px;
+}
+
+.Header{
+    margin: 10px;
+}
+
+.Footer{
+    text-align: center;
+    line-height: 60px;
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: 300;
+}
+
+
+h2,h3 {
     margin: 5px;
+    font-weight: 300;
 }
 
 svg {
@@ -31,5 +68,34 @@ svg {
 }
 
 .Title{
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.b {
+    color:rgb(66, 22, 99);
+
+    background-color: #c5edfb;
+}
+
+.Main{
+    margin: auto;
+    padding-top: 50px ;
+    padding-bottom: 50px;
+}
+
+.Card {
+    border-radius: 10px;
+    padding:20px;
+    margin: 50px auto ;
+    width:500px;
+
+    text-align: center;
+
     font-family: 'Lato', sans-serif;
 }
