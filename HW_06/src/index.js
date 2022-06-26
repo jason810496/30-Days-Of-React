@@ -32,36 +32,36 @@ const techsList = ['HTML' , 'CSS' , 'Javascript' , 'React' , 'Node' , 'MongoDB' 
 
 const lightColor = {
     
-    text1 : '#000',
+    text1 : '#1D3557',
     text2 : '#fff',
     header : {
-        background : '#dbf2fa',
-        button : '#c5edfb',
+        background : '#A8DADC',
+        button : '#E63946',
     },
     main :{ 
-        main: '#fff',
+        main: '#F1FAEE',
         card : {
             background : '#dbf2fa',
             border : '#b6edff',
-            block : '#b6edff',
+            block : '#A8DADC',
         },
     },
-    footer : '#b6edff',
+    footer : '#A8DADC',
 }
 
 const darkColor = {
     text1 : '#fff',
     text2 : '#000',
     header : {
-        background : 'rgb(5, 49, 93)',
-        button : 'rgb(66, 22, 99)',
+        background : '#00253E',
+        button : '#9AC6C5',
     },
     main : {
         main: '#000',
         card: {
             background : 'rgb(5, 49, 93)',
-            border : 'rgb(59, 88, 117)',
-            block : 'rgb(58, 0, 103)',
+            border : '#A5E6BA',
+            block : '#9AC6C5',
         },
     },
     footer : 'rgb(8, 35, 62)',
