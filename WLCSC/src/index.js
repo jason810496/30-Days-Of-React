@@ -19,7 +19,7 @@ const Header = ()=>{
 const Main = ()=>{
     return(
         <div className='Main'>
-            
+            <div className='textBackground'></div>
         </div>
     );
 }
@@ -38,6 +38,8 @@ const App = () => {
     return (
         <div className='App'>
             <Header/>
+            <Main/>
+            <Footer/>
         </div>
     );
 };
