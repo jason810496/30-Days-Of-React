@@ -3,7 +3,6 @@ var R_size = 0;
 var C_size = 0;
 var span = 100 ;
 var dot_R = 10;
-var dot_clr;
 
 
 function setup() {
@@ -27,8 +26,6 @@ function draw() {
     background(0);
     CreateLine();
     CreateDot();
-    
-
     UpdateMouse();
 }
 
