@@ -40,14 +40,14 @@ class TextBackground extends React.Component {
                 p5.strokeWeight( 2 ) ;
                 p5.stroke( 50 );
                 for( let i=1;i<this.R_size ;i++){
-                        if( i%3==0){
+                        if( i%3===0){
                                 
                                 p5.line(i*this.span , 0 , i*this.span , p5.height );
                         }
                 }
 
                 for( let i=1;i<this.C_size ;i++){
-                        if( i%3==0){
+                        if( i%3===0){
                                 p5.line( 0 , i*this.span , p5.width , i*this.span);
                         }
                 }
@@ -57,7 +57,7 @@ class TextBackground extends React.Component {
                 for(let i=0;i<this.R_size ; i++){
                         for( let j =0 ; j<this.C_size ; j++){
                                 let x = i*this.span  , y=j*this.span ;
-                                if( i%3==0 && j%3==0){
+                                if( i%3===0 && j%3===0){
                                         p5.push();
                                                 p5.translate( x, y );
                                                 p5.rotate(45);
@@ -89,7 +89,7 @@ class TextBackground extends React.Component {
                 p5.push();
                         
                         let shift = 80 ;
-                        p5.text( "X : " + p5.mouseX+ (p5.noise(p5.frameCount/10)*10).toFixed(3) , shift , this.height - shift+33 );
+                        p5.text( "X : " + p5.mouseX+ (p5.noise(p5.frameCount/10)*10).toFixed(3) , shift , p5.height - shift+33 );
 
                         p5.push();
                                 p5.strokeWeight(3);
