@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sketch from 'react-p5';
-import './styles.css';
+// import './styles.css';
 
 
 class App extends React.Component {
