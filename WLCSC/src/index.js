@@ -21,7 +21,8 @@ class TextBackground extends React.Component {
 	}
 
     setup = (p5, parentRef) => {
-        p5.createCanvas( p5.windowWidth, p5.windowHeight ).parent(parentRef);
+        let W = p5.windowWidth-10 , H = p5.windowHeight-100;
+        p5.createCanvas( W , H ).parent(parentRef);
         /* Background Part */
         this.R_size = p5.width / this.span + 1 ;
         this.C_size = p5.height / this.span + 1;
@@ -122,11 +123,17 @@ class TextBackground extends React.Component {
     }
 }
 
+class GameMachine extends React.Component {
+
+}
+
 const Header = ()=>{
     return (
         <header>
             <div className='Header'>
-                {Button}
+                {Logo}
+                {Buttons}
+                {Change}
             </div>
         </header>
     );
@@ -136,6 +143,10 @@ const Main = ()=>{
     return(
         <div className='Main'>
             <TextBackground />
+            <GameMachine />
+            <Advantage />
+            <Course />
+            <QA />
         </div>
     );
 }
@@ -144,7 +155,8 @@ const Footer = ()=>{
     return (
         <footer>
             <div className ='Footer'>
-
+                <Links />
+                <Copyright />
             </div>
         </footer>  
     );
